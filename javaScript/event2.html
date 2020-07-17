@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div align="center">
+    ID : <input type="text" id="eid"><br>
+    FName : <input type="text" id="first_name"><br>
+    LName : <input type="text" id="last_name"><br>
+    <select name="gender" id="gender">
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+    </select>
+    <p></p>
+    <button id="btn">Click add</button>
+    
+    <p id="show"></p>
+    
+    <script>
+        function addRow() {
+
+            var $tb1 = document.getElementById('tb1');
+            var eid = document.getElementById("eid");
+            var first_name = document.getElementById("first_name");
+            var last_name = document.getElementById("last_name");
+            console.log(eid.value, first_name.value, last_name.value);
+
+            var $tr = document.createElement('tr');
+            var $td = document.createElement('td');
+            var $text = document.createTextNode(eid.value);
+            $td.appendChild($text);
+            $tr.appendChild($td);
+
+            var $td = document.createElement('td');
+            var $text = document.createTextNode(first_name.value);
+            $td.appendChild($text);
+            $tr.appendChild($td);
+
+            var $td = document.createElement('td');
+            var $text = document.createTextNode(last_name.value);
+            $td.appendChild($text);
+            $tr.appendChild($td);
+
+            var $td = document.createElement('td');
+            var $text = document.createTextNode(gender.value);
+            $td.appendChild($text);
+            $tr.appendChild($td);
+
+
+            $td = document.createElement('td');
+            var $button = document.createElement('button');
+            $button.innerHTML="Click";
+            $button.onclick = function () {
+                    this.parentNode.parentNode.style.background = "purple"; //클릭할때마다 색바뀜
+                    this.parentNode.parentNode.remove();   //누르면 지워짐
+                }
+            $button.onmouseout = function () {
+                    this.parentNode.parentNode.style.background = "";
+                }
+            $button.onmouseover = function () {
+                    this.parentNode.parentNode.style.background = "pink";
+                }
+            $td.appendChild($button);
+            $tr.appendChild($td);
+
+            $tb1.appendChild($tr);
+        }
+        var btn = document.getElementById("btn");
+        btn.onclick = addRow;
+
+        function showCurrentRow() {
+
+            var titles = ["id", "first_name", "last_name","gender"];
+            var titles2 = ["Click"];
+
+            var jsonData = [
+            { "id": 1, "first_name": "Ronald", "last_name": "Herrero", "email": "rherrero0@t-online.de", "gender": "Male", "ip_address": "107.43.190.118" },
+            { "id": 2, "first_name": "Marielle", "last_name": "Craxford", "email": "mcraxford1@blogs.com", "gender": "Female", "ip_address": "233.163.2.50" },
+            { "id": 3, "first_name": "Uta", "last_name": "Londer", "email": "ulonder2@tripadvisor.com", "gender": "Female", "ip_address": "133.184.255.176" },
+            { "id": 4, "first_name": "Sanders", "last_name": "Shrieves", "email": "sshrieves3@phoca.cz", "gender": "Male", "ip_address": "70.232.153.234" },
+            { "id": 5, "first_name": "Warde", "last_name": "Hemshall", "email": "whemshall4@gizmodo.com", "gender": "Male", "ip_address": "170.76.253.42" },
+            { "id": 6, "first_name": "Goddard", "last_name": "Mozzetti", "email": "gmozzetti5@wufoo.com", "gender": "Male", "ip_address": "74.43.104.199" },
+            { "id": 7, "first_name": "Marcy", "last_name": "Gregorin", "email": "mgregorin6@theatlantic.com", "gender": "Female", "ip_address": "30.41.39.118" },
+            { "id": 8, "first_name": "Silva", "last_name": "Boyington", "email": "sboyington7@si.edu", "gender": "Female", "ip_address": "235.49.175.85" },]
+            console.log(jsonData);
+
+            var $table = document.createElement('table');
+            $table.setAttribute('border', '1', 'tb1');
+            $table.setAttribute('id', 'tb1');
+
+            var $tr = document.createElement('tr');
+            //titles 각각의 요소들을 for문으로 각각 th에 붙임
+            for (a of titles) { 
+                var $th = document.createElement('th');
+                $th.appendChild(document.createTextNode(a));
+                $tr.appendChild($th);
+            }
+            //표에 Click을 th부분에 나타나게 하려고 의도치않게 for문을..ㅎㅎ
+            for(b of titles2) {
+                var $th = document.createElement('th');
+                $th.appendChild(document.createTextNode(b));
+                $tr.appendChild($th);
+            }
+            $table.appendChild($tr);
+
+
+            jsonData.forEach(function (o, i, a) {
+                var $tr = document.createElement('tr');
+                for (a of titles) {
+                    var $td = document.createElement('td');
+                    $td.appendChild(document.createTextNode(o[a]));  //o[a] == o.first_name
+                    console.log(o[a]);
+                    $tr.appendChild($td);
+                }
+                $td = document.createElement('td');
+                var $button = document.createElement('button');
+                $button.setAttribute('id', 'btn2');
+                $button.innerHTML = "Click";
+                $button.onclick = function () {
+                    this.parentNode.parentNode.style.background = "purple"; //클릭할때마다 색바뀜
+                    this.parentNode.parentNode.remove();   //누르면 지워짐
+                }
+                $button.onmouseout = function () {
+                    this.parentNode.parentNode.style.background = "";
+                }
+                $button.onmouseover = function () {
+                    this.parentNode.parentNode.style.background = "pink";
+                }
+                $td.appendChild($button);
+                $tr.appendChild($td);
+
+                $table.appendChild($tr);
+            });
+
+            document.getElementById("show").appendChild($table);
+        }
+        showCurrentRow();
+
+        document.write('<h1>'+ '=====================' + '</h1>');
+
+
+
+    </script>
+    </div>
+</body>
+
+</html>

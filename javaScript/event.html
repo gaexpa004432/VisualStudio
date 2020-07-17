@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="show"></p>
+    <button onclick="showCurrentTime()" onmouseover="changebackground(this)"
+        onmouseout="changebackground2(this)">click</button>
+    </button>
+    <script>
+        function showCurrentTime() {
+            document.getElementById('show').innerHTML = Date();
+        }
+        function changebackground(element) {
+            element.setAttribute("style", 'background-color: pink');
+        }
+        function changebackground2(element) {
+            element.setAttribute("style", 'background-color: white');
+        }  
+    </script>
+</body>
+
+</html>

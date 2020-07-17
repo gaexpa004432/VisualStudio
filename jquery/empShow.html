@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <p></p>
+    <script>
+ 
+        $(document).ready(function(){
+            $.ajax({
+                url: 'emp.xml',
+                success: function(result,status,xhr){
+                    var record = $(result).children().children();
+                    console.log(record.eq(0).children().eq(0).text());
+                    console.log($(result).children().children());
+                   for(var a =0; a < record.length; a++){
+                       
+                       for(var j=0;j<5 ;j++){
+
+                        $('p').append($('<table />').append($('<tr />').append($('<p />').text(record.eq(a).children().eq(j).text()))));
+                       }
+                   }
+                //    $('p').append($('<table />').append($tr));
+                //    $('record')
+                }
+            })
+        })
+    </script>
+</body>
+</html>

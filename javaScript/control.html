@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id='score' value='80' placeholder="numberic">
+    <br>
+    <button onclick="checkScore()">Click</button>
+    <p id="show"> </p>
+    <script>
+        function checkScore() {
+            var score = document.getElementById('score').value;
+            score = parseInt(score);
+            var element1 = document.getElementById('show');
+            console.log(element1);
+            if(score >= 90){
+                element1.setAttribute('style','background-color: pink');
+                document.getElementById("show").innerHTML = '출력완료';
+                window.alert(score);
+            }
+        }
+    </script>
+</body>
+</html>

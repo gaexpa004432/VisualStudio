@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="1" type="text" >
+    사이의 합
+    <input id="2" type="text" >
+    
+    <button onclick="outerFunc(argsFunc)">계산</button>
+    <p id="show"></p>
+    
+    <p id="screen"></p>
+    <script>
+    function outerFunc(func){
+        var str1 = parseInt(document.getElementById('1').value);
+        var str2 = parseInt(document.getElementById('2').value);
+        if(str2 > str1){
+        
+        func(str1,str2);
+        }else{
+            func(str2,str1)
+        }
+    }
+    
+    function argsFunc(){
+        var sum = 0;
+        // if(arguments[0] > arguments[1]){
+        // var temp = arguments[1];
+        // arguments[1] = arguments[0];
+        // arguments[0] = temp;
+        // }
+        for(var i=arguments[0];i <=arguments[1];i++){
+          sum  += i;
+        }
+        document.getElementById("show").innerHTML = sum;
+    }
+</script>
+</body>
+</html>

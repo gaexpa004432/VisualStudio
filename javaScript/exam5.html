@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet"
+    href="table.css">
+</head>
+
+<body>
+    <div align="center">
+    <p id="show"></p>
+    <script>
+        function showCurrentRow() {
+
+            var titles = ["id", "first_name", "last_name","gender"];
+            var titles2 = ["Click"];
+
+            var jsonData = [
+            { "id": 1, "first_name": "Ronald", "last_name": "Herrero", "email": "rherrero0@t-online.de", "gender": "Male", "ip_address": "107.43.190.118" },
+            { "id": 2, "first_name": "Marielle", "last_name": "Craxford", "email": "mcraxford1@blogs.com", "gender": "Female", "ip_address": "233.163.2.50" },
+            { "id": 3, "first_name": "Uta", "last_name": "Londer", "email": "ulonder2@tripadvisor.com", "gender": "Female", "ip_address": "133.184.255.176" },
+            { "id": 4, "first_name": "Sanders", "last_name": "Shrieves", "email": "sshrieves3@phoca.cz", "gender": "Male", "ip_address": "70.232.153.234" },
+            { "id": 5, "first_name": "Warde", "last_name": "Hemshall", "email": "whemshall4@gizmodo.com", "gender": "Male", "ip_address": "170.76.253.42" },
+            { "id": 6, "first_name": "Goddard", "last_name": "Mozzetti", "email": "gmozzetti5@wufoo.com", "gender": "Male", "ip_address": "74.43.104.199" },
+            { "id": 7, "first_name": "Marcy", "last_name": "Gregorin", "email": "mgregorin6@theatlantic.com", "gender": "Female", "ip_address": "30.41.39.118" },
+            { "id": 8, "first_name": "Silva", "last_name": "Boyington", "email": "sboyington7@si.edu", "gender": "Female", "ip_address": "235.49.175.85" },]
+            
+
+            var $table = document.createElement('table');
+            $table.setAttribute('border', '1', 'tb1');
+            $table.setAttribute('id', 'tb1');
+
+            var $tr = document.createElement('tr');
+            
+            for (a of titles) { 
+                var $th = document.createElement('th');
+                $th.appendChild(document.createTextNode(a));
+                $tr.appendChild($th);
+            }
+           
+            for(b of titles2) {
+                var $th = document.createElement('th');
+                $th.appendChild(document.createTextNode(b));
+                $tr.appendChild($th);
+            }
+            $table.appendChild($tr);
+
+
+            jsonData.forEach(function (o, i, a) {
+                var $tr = document.createElement('tr');
+                for (a of titles) {
+                    var $td = document.createElement('td');
+                    $td.appendChild(document.createTextNode(o[a]));  
+                    console.log(o[a]);
+                    $tr.appendChild($td);
+                }
+                $td = document.createElement('td');
+                var $button = document.createElement('button');
+                $button.setAttribute('id', 'btn2');
+                $button.innerHTML = "Click";
+                $button.onclick = function () {
+                    // this.parentNode.parentNode.style.background = "purple"; 
+                    this.parentNode.parentNode.remove();  
+                }
+                // $button.onmouseout = function () {
+                //     this.parentNode.parentNode.style.background = "";
+                // }
+                // $button.onmouseover = function () {
+                //     this.parentNode.parentNode.style.background = "pink";
+                // }
+                $td.appendChild($button);
+                $tr.appendChild($td);
+
+                $table.appendChild($tr);
+            });
+
+            document.getElementById("show").appendChild($table);
+        }
+        showCurrentRow();
+
+        document.write('<h1>'+ '=====================' + '</h1>');
+
+
+
+    </script>
+    </div>
+</body>
+
+</html>

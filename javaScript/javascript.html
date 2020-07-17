@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+    textarea{
+        width:500px;
+        height:400px;
+        margin:30px;
+    }
+</style>
+<script>
+
+    function init(){
+        var mouse = {x: 0, y: 0, down: false};
+        var txt1 = window.document.form1.txt1;
+        canvas = document.getElementById( 'canvas' );
+  context = canvas.getContext( '2d' );
+  var image1 = document.getElementById("img1");
+        _img = new Image();
+        _img.src = "hero.png";
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  canvas.addEventListener('mousemove', mouseMove, false);
+        txt1.onmouseover = function(){
+            /* txt1.value="mouseover\r\n"+txt1.value;  */
+            /* window.document.body.bgColor="white"; */
+        };
+        txt1.onmouseout= function(){
+            /* txt1.value="mouseout\r\n"+txt1.value; */
+        };
+        txt1.onmousedown=function(){    
+            /* txt1.value=event.x + ","+event.y; */
+            /* txt1.value=event.clientX + ","+event.clientY; */
+            /* txt1.value=event.screenX + ","+event.screenY; */
+            /* txt1.value=event.offsetX + ","+event.offsetY; */
+        };
+        txt1.onmouseup=function(){
+            /* txt1.value="mouseup\r\n"+txt1.value; */ 
+        };
+        function mouseMove ( event ){
+  mouse.x = event.pageX;
+  mouse.y = event.pageY;
+  document.getElementById("show").innerHTML = "x축 : "+mouse.x+" y축 : "+mouse.y;
+   image1.setAttribute("style", "position: absolute; left:"+(mouse.x-160)+"px; top:"+(mouse.y-200)+"px;");
+
+    //  context.drawImage(_img, mouse.x-160, mouse.y-200);
+                
+}
+        // canvas.onmousemove = function(){
+        //     /* txt1.value="mousemove\r\n"+txt1.value; */
+        //     canvas.value=+event.clientX+":"+canvas.clientY+"\r\n"+canvas.value;
+            
+        //     /* window.document.form1.txt2.size=event.clientX/2; */
+            
+        
+        // };
+        
+    }//init;
+    function test(){
+        alert("테스트");
+    }
+
+</script>
+<title></title>
+
+</head>
+<body onload="init();">    
+    <!-- 동적으로 이벤트 -->
+    <p id="show"></p>
+    <form name ="form1">
+        <canvas id='canvas'>
+            
+        </canvas>
+
+        <img id="img1" src="hero.png">
+
+        <input type="button" name="btn1" value="버튼1"/>
+        <br/>
+
+    <input type="text" name="txt2" />
+    </form>
+</body>
+</html>

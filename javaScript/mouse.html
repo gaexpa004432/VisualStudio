@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+    font-family: 'Georgia', cursive;
+  font-size: 40px;
+ position: fixed; 
+  top: 50%;
+  left: 50%;
+  color: #000;
+  margin-top: -40px;
+  margin-left: -200px;
+}
+    </style>
+</head>
+<body>
+    <script>
+        var mouse = {x: 0, y: 0, down: false}
+        function init() {
+  canvas = document.getElementById( 'canvas' );
+  context = canvas.getContext( '2d' );
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  
+  canvas.addEventListener('mousemove', mouseMove, false);
+  window.onresize = function(event) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+}
+function mouseMove ( event ){
+  mouse.x = event.pageX;
+  mouse.y = event.pageY;
+}
+    </script>
+    <canvas id='canvas'></canvas>
+    <span id='info'>Click and drag to draw!<span>
+</body>
+</html>

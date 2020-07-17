@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css_override.css">
+        <style type="text/css">
+        p {
+            color: blue;
+        
+        }
+        a:hover[href*="html"] {
+            background-color: aqua;
+        }
+        a:visited{
+            color: brown;
+        }
+        p1::first-letter{
+            color: cornflowerblue;
+        }
+        div h1 {
+            color: blueviolet;
+        }
+        .g { font-family: "배스킨라빈스 B"; }
+        div:hover{
+            background-color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <p1>css 적용확인</p1><br>
+    <p>내부 css</p>
+    <p1 style="color: red;">내부 속성 css </p1><br>
+    <a href="/webPROG/input/input.html">input.html</a>
+    <h1>h1 요소</h1>
+    <div>
+        <h1>h1 요소</h1>
+        <h2 class="g">두번째 폰트 적용 된건가?</h2>
+        <h2>두번째 폰트 적용 된건가?</h2>
+        <h3>세번째</h3>
+    </div>
+</body>
+</html>

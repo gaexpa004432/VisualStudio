@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    학번:<input type="text" id="studentNO"><br>
+    이름:<input type="text" id="name"><br>
+    학년:<select id="grade">
+        <option value="1">1학년</option>
+        <option value="2">2학년</option>
+        <option value="3">3학년</option>
+        <option value="4">4학년</option>
+    </select><br>
+    전공:<input type="text" id="major"><br>
+    <button id="btn">추가</button><br>
+    <select id="usergrade">
+        <option value="1">1학년</option>
+        <option value="2">2학년</option>
+        <option value="3">3학년</option>
+        <option value="4">4학년</option>
+    </select><br>
+    <p id='show'></p>
+    <script>
+        var students = [];
+        document.getElementById("btn").onclick = function () {
+            var student = {
+                studentNo: document.getElementById('studentNO').value,
+                name: document.getElementById('name').value,
+                grade: document.getElementById('grade').value,
+                major: document.getElementById('major').value
+            }
+            students.push(student);
+            console.log(students);
+
+        }
+        document.getElementById('usergrade').onchange = function () {
+            var grade = this.value;
+            var filterStudents = students.filter(function (a) {
+                return a.grade == grade;
+
+            })
+            document.getElementById('show').innerHTML = "";
+            filterStudents.forEach(function (o, i) {
+                var li = document.createElement('li');
+
+                li.appendChild(document.createTextNode(o.studentNo + o.name));
+                document.getElementById('show').appendChild(li);
+
+            });
+        }
+
+    </script>
+</body>
+
+</html>

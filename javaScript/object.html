@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var ary = [];
+        var anyAry = [1,2,3,4,'hello'];
+        var person ={
+            firstName: "kildong",lastName: "hong",
+            fullName: function() {return this.firstName + this.lastName}
+        }
+        var person1 ={
+            firstName: "kildong1",lastName: "hong",
+            fullName: function() {return this.firstName + this.lastName}
+        }
+        var person2 ={
+            firstName: "kildong2",lastName: "hong",
+            fullName: function() {return this.firstName + this.lastName}
+        }
+        ary.push(person);
+        ary.push(person1);
+        ary.push(person2);
+       
+        //window.alert(person.lastName);
+        document.write("<table border='1'>");
+        document.write("<tr>");
+        for(p in person){
+            //window.alert(person[p]);
+            document.write("<th>"+p+"</th>");
+        }
+        document.write("</tr>");
+        for( i of ary){
+            document.write("<tr>");
+            document.write("<td>"+i.firstName+"</td>");
+            document.write("<td>"+i.lastName+"</td>");
+            document.write("</tr>");
+        }
+        document.write("</table>");
+        
+            document.write("<table border='1'>");
+            ary.forEach(function(a,b,c){
+            document.write("<tr><td>"+a.firstName+"</td><td>"+a.lastName+"</td></tr>"); 
+            console.log(a);
+        });
+        document.write("</table>");
+        
+            document.write("<table border='1'>");
+            // forEach를 함수를 사용 obj값을 인수로보내서 크기만큼 반복
+        ary.forEach(showTable);
+        document.write("</table>");
+        
+        function showTable(elm) {
+            document.write("<tr><td>1"+elm.firstName+"</td><td>"+elm.lastName+"</td></tr>"); 
+        }
+
+        document.write("<table border='1'>");
+        ary.forEach(function(a,b,c){
+            document.write("<tr><td>"+ary[b].firstName+"</td><td>"+ary[b].lastName+"</td></tr>");  
+    });
+        
+    document.write("</table>");
+
+  
+    </script>
+</body>
+</html>

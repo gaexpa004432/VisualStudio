@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showPage(){
+            var v_name=document.getElementById("username").value;
+            var v_gender=document.getElementById("male").value;
+            location.href ='Button.jsp?name=' + v_name + '&gender=' + v_gender;
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Button tag</h1>
+    <form action="button.jsp" method="get">
+        name <input type="text" value="button" id="username" name="name"><br>
+        <input type="radio" value="Male" id="male" name="gender">
+        <label for="man">남자</label>
+        <input type="radio" value="Female" id="female" name="gender">
+        <label for="girl">여자</label><br>
+        <input type="submit" value="send">
+        <input type="button" onclick="alert('click')" value="Cilck">
+
+        <select name="subjcts">
+            <option>Html</option>
+            <option>css</option>
+            <option>java</option>
+            <option>sql</option>
+        </select>
+
+    </form>
+</body>
+</html>

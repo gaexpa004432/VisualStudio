@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="input.jsp">
+        <h1>입력</h1>
+        <table border="0">
+            <tr>
+                <th>이름</th>
+                <td><input type="text" name="username" required></td>
+            </tr>
+            <tr>
+                <td>비번</td>
+                <td><input type="password" name="pass" required</td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td><input type="radio" id="male" name="gender" value="M"><label for="male">남자</label>
+                    <input type="radio" id="female" name="gender" value="F"><label for="female">여자</label></td>
+            </tr>
+            <tr>
+                <th>취미</th>
+                <td><input type="checkbox" name="hobby" value="screen" id="screen"><label for="screen">영화</label>
+                    <input type="checkbox" name="hobby" value="sleep" id="sleep"><label for="sleep">수면</label>
+                    <input type="checkbox" name="hobby" value="book" id="book"><label for="book">독서</label></td>
+            </tr>
+            <tr>
+                <td>생일</td><td><input type="date" name="birth"></td>
+            </tr>
+            <tr>
+                <td>범위</td>
+                <td><input type="range" name="likeit" min="0" max="100"></td>
+            </tr>
+            <tr>
+                <th>관심</th>
+                <td><select name="subject">
+                        <option value="html">html</option>
+                        <option value="css">css</option>
+                        <option value="java">java</option>
+                        <option value="sql">sql</option>
+                    </select></td>
+            </tr>
+            <tr align="center">
+                <td colspan="2"><input type="submit" value="send">
+                    <input type="reset" value="cancle"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

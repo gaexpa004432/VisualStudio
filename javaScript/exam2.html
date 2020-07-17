@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input/input.html</title>
+</head>
+
+<body>
+
+    <form action="memberRegister.jsp" method="POST">
+        <p>ID : <input type="text" name="id" required>
+        <p>PASS : <input type="password" name="pass" required>
+        <p>이름 : <input type="text" name="userName" required>
+        <p>나이 : <input type="text" name="age" required>
+            <p>   <input type="submit" value="전송">
+            <input type="reset" value="취소">
+
+    </form>
+    <script>
+        function setVale(e) {
+
+            document.getElementById("showVal").innerHTML = e.value + "%";
+        }
+    </script>
+</body>
+
+</html>

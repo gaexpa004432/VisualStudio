@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .circle {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 -50px;
+  background: #CB4B16;
+  border-radius: 80%;
+  backface-visibility: hidden;
+}
+    
+    </style>
+</head>
+<body>
+    <p id="p">피요소</p>
+    <button id="no" style="background-color: red; position: fixed; top:800 ;" align='CENTER'>다시</button>
+    <div class="circle"></div>
+    <p1 border='1' style="position:fixed; top: 290px;">------------------------------------------------------------</p1>
+    <script>
+        // $circle.parent().parent.;
+        
+        // document.body.style.cursor = 'none';
+        let continue1 = 1;
+        // $(document).ready(function(){
+        var $circle = $('.circle');
+        $('html').mousemove(function(e){
+           $circle.animate({'top':e.pageY,'left':e.pageX},0)
+            $('p').text('x축 '+e.pageX + ' y축 '+e.pageY + 'continue = '+continue1) ;
+        if(e.pageY < 300 && continue1 == 1){
+            continue1 = 0
+            alert('게이 cut')
+        }
+
+            
+     
+    
+  });
+    
+        $('#no').click(function(){
+            
+            continue1 =1;
+        })
+    // });
+        $('html').css({'background':'pink'})
+    </script>
+</body>
+</html>

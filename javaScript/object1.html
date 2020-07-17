@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var person = {
+            name: "you",
+            age: 28,
+            height: 160,
+            eat: function() {
+                console.log("eat");
+            }
+        }
+        var person1 = {
+            name: "me",
+            age: 27,
+            height: 175,
+            eat: function() {
+                console.log("eat");
+            }
+        }
+        // person.name = "me";
+        // person.age = 27;
+        // person.height = 175;
+        var persons = [];
+        persons.push(person);
+        persons.push(person1);
+        persons.push(person);
+         delete persons[1];
+        persons.unshift(person1);
+        console.log(persons);
+        
+        var nm = "name";
+    </script>
+</body>
+</html>
